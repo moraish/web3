@@ -75,21 +75,21 @@ export default function Airdrop({ onAirdropComplete }: AirdropProps) {
     };
 
     return (
-        <div className="w-full max-w-md mx-auto p-8 bg-black/20 backdrop-blur-md rounded-2xl shadow-2xl border border-purple-500/20">
+        <div className="w-full bg-slate-800/50 border border-slate-700 rounded-xl p-8">
             <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <span className="text-white text-2xl">🪂</span>
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <span className="text-white text-xl">🪂</span>
                 </div>
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+                <h2 className="text-2xl font-semibold text-slate-100 mb-2">
                     Token Airdrop
                 </h2>
-                <p className="text-gray-300 text-sm">Get SOL tokens on Solana Devnet</p>
+                <p className="text-slate-400 text-sm">Get SOL tokens on Solana Devnet</p>
             </div>
 
             <div className="space-y-6">
                 <div>
-                    <label htmlFor="amount" className="block text-sm font-medium text-gray-300 mb-3">
-                        Amount to Airdrop (SOL)
+                    <label htmlFor="amount" className="block text-sm font-medium text-slate-200 mb-2">
+                        Amount (SOL)
                     </label>
                     <input
                         type="number"
@@ -97,8 +97,8 @@ export default function Airdrop({ onAirdropComplete }: AirdropProps) {
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
                         onKeyPress={handleKeyPress}
-                        placeholder="Enter amount (max 2 SOL)..."
-                        className="w-full px-4 py-4 bg-black/30 border border-purple-500/30 rounded-xl focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all duration-200 outline-none text-white placeholder-gray-400 backdrop-blur-sm"
+                        placeholder="Enter amount (max 2 SOL)"
+                        className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all duration-200 outline-none text-slate-100 placeholder-slate-500"
                         disabled={isLoading}
                         step="0.1"
                         min="0"
@@ -109,9 +109,9 @@ export default function Airdrop({ onAirdropComplete }: AirdropProps) {
                 <button
                     onClick={handleAirdrop}
                     disabled={isLoading || !publicKey}
-                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 disabled:transform-none focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-black/20 shadow-lg hover:shadow-xl hover:shadow-purple-500/25 disabled:shadow-none"
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-slate-600 disabled:to-slate-700 text-white font-medium py-3 px-4 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-2 focus:ring-offset-slate-800"
                 >
-                    <span className="flex items-center justify-center space-x-2">
+                    <span className="flex items-center justify-center gap-2">
                         {isLoading ? (
                             <>
                                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -128,17 +128,17 @@ export default function Airdrop({ onAirdropComplete }: AirdropProps) {
 
                 {/* Message Display */}
                 {message && (
-                    <div className={`p-4 rounded-xl border ${messageType === 'success'
-                        ? 'bg-green-500/10 border-green-500/30 text-green-300'
-                        : 'bg-red-500/10 border-red-500/30 text-red-300'
+                    <div className={`p-4 rounded-lg border ${messageType === 'success'
+                            ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
+                            : 'bg-red-500/10 border-red-500/30 text-red-300'
                         }`}>
-                        <div className="flex items-start space-x-3">
+                        <div className="flex items-start gap-3">
                             <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${messageType === 'success'
-                                ? 'bg-green-500/20'
-                                : 'bg-red-500/20'
+                                    ? 'bg-emerald-500/20'
+                                    : 'bg-red-500/20'
                                 }`}>
                                 <span className="text-xs">
-                                    {messageType === 'success' ? '✅' : '❌'}
+                                    {messageType === 'success' ? '✓' : '✕'}
                                 </span>
                             </div>
                             <div className="text-sm">
@@ -149,14 +149,14 @@ export default function Airdrop({ onAirdropComplete }: AirdropProps) {
                 )}
             </div>
 
-            <div className="mt-6 p-4 bg-purple-500/10 rounded-xl border border-purple-500/20">
-                <div className="flex items-start space-x-3">
-                    <div className="w-5 h-5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <span className="text-white text-xs">ℹ️</span>
+            <div className="mt-6 p-4 bg-slate-700/30 rounded-lg border border-slate-600">
+                <div className="flex items-start gap-3">
+                    <div className="w-5 h-5 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span className="text-white text-xs">ℹ</span>
                     </div>
-                    <div className="text-xs text-gray-300">
-                        <p className="font-medium text-purple-300 mb-1">Devnet Airdrop:</p>
-                        <ul className="space-y-1 text-gray-400">
+                    <div className="text-xs text-slate-300">
+                        <p className="font-medium text-slate-200 mb-1">Devnet Airdrop:</p>
+                        <ul className="space-y-1 text-slate-400">
                             <li>• Maximum 2 SOL per request</li>
                             <li>• Only works on Solana Devnet</li>
                             <li>• Requires connected wallet</li>
