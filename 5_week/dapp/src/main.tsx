@@ -1,14 +1,11 @@
-import { Buffer } from 'buffer'
-import { StrictMode } from 'react'
+// Import polyfills first to ensure Buffer is available
+import './polyfills';
+
+// import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 
-// Polyfill Buffer for browser environment
-window.Buffer = Buffer
-
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <App />
 )
